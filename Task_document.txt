@@ -1,0 +1,92 @@
+I require the following langchain project consisting of 6 python scripts to run via a local llm model server under ubuntu 22.04.
+
+Files:
+
+utils.py
+app.py         
+events.py      
+writing.py
+characters.py  
+publishing.py  
+"Profile.pdf" (included)
+
+Original files copied from video link here:
+
+https://newsletter.theaiedge.io/p/how-to-automate-writing-books-with
+
+Currently, the project only runs through openai api:
+
+Steps:
+
+1. Add valid openai key to 'utils.py' 
+
+import os
+
+from langchain.chains import LLMChain
+from langchain.chat_models import ChatOpenAI
+
+# Add api key here:
+
+os.environ["OPENAI_API_KEY"] = "your_valid_api_key_here"
+
+etc.
+
+2. python app.py 
+
+This runs the entire project and generates output 'book.docx' to local 'docs' folder
+
+Takes approximately 20 minutes using default 'gpt-3.5-turbo-16k' (set in 'utils.py')
+
+REQUIRMENT:
+
+To run same langchain project error free via local model server and loaded model e.g. llama2-based model including quantized versions
+
+Preferred server is current version "text generation webui"
+
+https://github.com/oobabooga/text-generation-webui
+
+Example langchain links:
+
+https://python.langchain.com/docs/integrations/llms/textgen/
+
+https://www.abstractoid.com/blog/using-langchain-and-text-generation-webui-local-llm/ *
+
+NOTE: Found conflicting information and all attempts to modify scripts as per above failed.
+
+* blog post example worked 'as-is' but could not modfiy all scripts.
+
+Scripts to be modified for local llm server:
+
+utils.py
+characters.py
+events.py
+
+If not possible to implement then open to langchain alternatives:
+
+llamacpp, Ollama etc.
+
+Must specify server version, steps, model used if alternative to textgen webui
+
+RESULT:
+
+If successful implementing langchain with textgen webui
+
+1. python server.py --api --listen
+
+load llama2 based or other model via textgen webui
+
+Please specify model that you used to complete the task.
+
+2. python app.py (should work as per original openai)
+
+SYSTEM:
+
+Python 3.10.12 on linux
+
+Ubuntu 22.04
+
+Cuda 11.8
+
+48 gigs VRAM *
+
+* If you run on cpu only the code should still work on gpu.

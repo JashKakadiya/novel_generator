@@ -1,5 +1,5 @@
 from utils import BaseEventChain
-from langchain.llms import GPT4All, LlamaCpp
+from langchain_community.llms import GPT4All, LlamaCpp
 
 import os 
 # Add api key here:

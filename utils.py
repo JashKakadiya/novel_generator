@@ -2,7 +2,7 @@ import os
 
 from langchain.chains import LLMChain
 # from langchain.chat_models import ChatOpenAI
-from langchain.llms import GPT4All, LlamaCpp
+from langchain_community.llms import GPT4All, LlamaCpp
 
 import os 
 # Add api key here:

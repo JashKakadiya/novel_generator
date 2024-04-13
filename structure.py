@@ -1,6 +1,6 @@
 from utils import BaseStructureChain
 # from langchain.chat_models import ChatOpenAI
-from langchain.llms import GPT4All, LlamaCpp
+from langchain_community.llms import GPT4All, LlamaCpp
 
 
 import os 

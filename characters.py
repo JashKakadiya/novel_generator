@@ -1,6 +1,5 @@
 import os
 from langchain.document_loaders import PyPDFLoader
-# from langchain.chat_models import ChatOpenAI
 from langchain.llms import GPT4All, LlamaCpp
 import dotenv
 dotenv.load_dotenv()

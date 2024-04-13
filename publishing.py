@@ -1,6 +1,6 @@
 import docx
 
-
+import os
 class DocWriter:
 
     def __init__(self) -> None:
@@ -21,5 +21,5 @@ class DocWriter:
 
             text = '\n\n'.join(paragraphs_list)
             self.doc.add_paragraph(text)
-
-        self.doc.save('docs/book.docx')
+        file_path = os.path.join(os.path.dirname(__file__),'docs', 'book.docx')
+        self.doc.save(file_path)

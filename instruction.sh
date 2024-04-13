@@ -41,7 +41,7 @@ done
 
 # Other dependencies
 echo "Installing other dependencies..."
-pip install langchain langchain-community pypdf python-dotenv
+pip install langchain langchain-community pypdf python-dotenv python-docx PyDocX PyMuPDF torch
 
 # Run the app
 echo "ready to run app..."

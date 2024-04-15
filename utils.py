@@ -1,11 +1,9 @@
 import os
 
 from langchain.chains import LLMChain
-# from langchain.chat_models import ChatOpenAI
 from langchain_community.llms import GPT4All, LlamaCpp
 
 import os 
-# Add api key here:
 import dotenv
 dotenv.load_dotenv()
 
@@ -17,7 +15,16 @@ class BaseStructureChain:
     PROMPT = ''
 
     def __init__(self) -> None:
-        self.llm = LlamaCpp(model_path=model_path, n_ctx=4096, verbose=False)
+        self.llm = LlamaCpp(
+    model_path=model_path,
+    max_tokens=1024,
+    n_gpu_layers=40,
+    n_batch=512,
+    verbose=True,
+    n_ctx=4096, # Context window
+
+    temperature = 0.75,
+)
         self.chain = LLMChain.from_string(
             llm=self.llm,
             template=self.PROMPT,

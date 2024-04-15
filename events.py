@@ -2,7 +2,6 @@ from utils import BaseEventChain
 from langchain_community.llms import GPT4All, LlamaCpp
 
 import os 
-# Add api key here:
 import dotenv
 dotenv.load_dotenv()
 
@@ -48,7 +47,16 @@ class ChapterPlotChain(BaseEventChain):
     def run(self, subject, genre, author, profile, title,
             plot, summaries_dict, chapter_dict, chapter):
         
-        llm = LlamaCpp(model_path=model_path)
+        llm = LlamaCpp(
+    model_path=model_path,
+    max_tokens=1024,
+    n_gpu_layers=40,
+    n_batch=512,
+    verbose=True,
+    n_ctx=4096, # Context window
+
+    temperature = 0.75,
+)
         features = llm.predict(self.HELPER_PROMPT)
 
         outline = '\n'.join([
